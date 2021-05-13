@@ -521,8 +521,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1315315246}
   - {fileID: 1718579838}
+  - {fileID: 1315315246}
   - {fileID: 1337873201}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -815,9 +815,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1407799282}
-        m_TargetAssemblyTypeName: MenuGamePlay, Assembly-CSharp
-        m_MethodName: HideMenu
+      - m_Target: {fileID: 1407799283}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1477,11 +1477,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 426336209}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -434, y: 307}
+  m_AnchoredPosition: {x: 459.9, y: 341.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315315247
@@ -1772,6 +1772,7 @@ GameObject:
   - component: {fileID: 1407799281}
   - component: {fileID: 1407799280}
   - component: {fileID: 1407799282}
+  - component: {fileID: 1407799283}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -1822,6 +1823,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuDesplegable: {fileID: 1718579837}
+--- !u!114 &1407799283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407799279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2cff75bc438ba04ebf419a1f7fc7aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 1718579837}
 --- !u!1 &1513150674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +1906,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: 'Quit
+
+'
 --- !u!222 &1513150677
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1998,7 +2014,7 @@ GameObject:
   - component: {fileID: 1577755444}
   - component: {fileID: 1577755443}
   m_Layer: 5
-  m_Name: ButtonOptions
+  m_Name: ButtonQuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2068,13 +2084,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1407799280}
+        m_TargetAssemblyTypeName: CambioScene, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2260,7 +2276,7 @@ Transform:
   - {fileID: 628254877}
   - {fileID: 1577755442}
   m_Father: {fileID: 426336209}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1802222930
 GameObject:
