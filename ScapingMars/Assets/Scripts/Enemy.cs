@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Pool;
 //using DG.Tweening;
 
 public class Enemy : MonoBehaviour
@@ -17,9 +18,10 @@ public class Enemy : MonoBehaviour
     SpriteRenderer enemySpriteRenderer;
     private Animator animator;
 
-     private void Start() 
+
+    private void Start() 
     {
-       // moveIdle.DOMoveX(3,animDuration).SetLoops(-1,LoopType.Yoyo);
+        // moveIdle.DOMoveX(3,animDuration).SetLoops(-1,LoopType.Yoyo);
         animator = GetComponent<Animator>();
         enemySpriteRenderer = GetComponent<SpriteRenderer>();
     } 

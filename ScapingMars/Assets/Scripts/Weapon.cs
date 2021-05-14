@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Pool;
 
 public class Weapon : MonoBehaviour
 {
@@ -92,7 +93,7 @@ public class Weapon : MonoBehaviour
             impactEffectArray[i].gameObject.transform.parent =  impactContainer.transform;
             if(impactEffectArray.Length == 5)
             {
-                Destroy(impactEffectArray[i].gameObject);
+                LeanPool.Despawn(impactEffectArray[i].gameObject);
             }
         }
     }
@@ -104,19 +105,19 @@ public class Weapon : MonoBehaviour
         switch(posRotate)
         {
             case 1:
-                Instantiate(bulletprefab, firePointposX.position, firePointposX.rotation);     
+                LeanPool.Spawn(bulletprefab, firePointposX.position, firePointposX.rotation);     
                         
             break;
             case 2:
-                Instantiate(bulletprefab, firePointnegX.position, firePointnegX.rotation);
+                LeanPool.Spawn(bulletprefab, firePointnegX.position, firePointnegX.rotation);
                 
             break;
             case 3:
-                Instantiate(bulletprefab, firePointnegY.position, firePointnegY.rotation);
+                LeanPool.Spawn(bulletprefab, firePointnegY.position, firePointnegY.rotation);
                 
             break;  
             case 4:
-                Instantiate(bulletprefab, firePointposY.position, firePointposY.rotation);
+                LeanPool.Spawn(bulletprefab, firePointposY.position, firePointposY.rotation);
                 
             break;
         }
