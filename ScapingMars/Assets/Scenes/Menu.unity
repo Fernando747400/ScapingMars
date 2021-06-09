@@ -238,8 +238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4651912690234673676, guid: 2f9fe8742f2e31d409fd1dbccd8fee10,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0e4d8a9a69024442a645feb48fabab8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -420,7 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93725497, g: 0.33333334, b: 0.1254902, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -541,7 +540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &530052758
 RectTransform:
   m_ObjectHideFlags: 0
@@ -703,8 +702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4651912690234673676, guid: 2f9fe8742f2e31d409fd1dbccd8fee10,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0e4d8a9a69024442a645feb48fabab8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -738,6 +736,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Fundido '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575851409003218822, guid: 05c6d90864b26e546a56fd2e136deed5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8864052784201844802, guid: 05c6d90864b26e546a56fd2e136deed5,
         type: 3}
@@ -967,7 +970,7 @@ GameObject:
   - component: {fileID: 1264551258}
   - component: {fileID: 1264551257}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1192,7 +1195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93725497, g: 0.33333334, b: 0.1254902, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

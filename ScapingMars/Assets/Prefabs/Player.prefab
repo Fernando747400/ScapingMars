@@ -46,6 +46,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -127,6 +128,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -209,6 +211,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -255,10 +258,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2439942079971131724}
   - component: {fileID: 2439942079971131727}
-  - component: {fileID: 2439942079971131720}
   - component: {fileID: 2439942079971131725}
   - component: {fileID: 2439942079971131723}
   - component: {fileID: 2439942079971131722}
+  - component: {fileID: 2439942079971131720}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -298,6 +301,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -334,19 +338,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2439942079971131720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2439942079971131726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30ce4bacbcdc7df46b376a93c73066e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMovPlayer: 4
 --- !u!95 &2439942079971131725
 Animator:
   serializedVersion: 3
@@ -403,3 +394,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0026786786, y: -0.24499986}
   m_Size: {x: 0.6746164, y: 0.97999996}
   m_Direction: 0
+--- !u!114 &2439942079971131720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2439942079971131726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ce4bacbcdc7df46b376a93c73066e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMovPlayer: 4
+  move2D: {x: 0, y: 0}
+  canShoot: 0
+  weaponOnGround: {fileID: 0}
+  weaponOnMe: {fileID: 0}
