@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("PlayerTocaArma");
             weaponOnGround.gameObject.SetActive(false);
+            GlobalVariables.ItemOne = true;
         }
 
         if (other.name == "ItemOne")

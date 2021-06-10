@@ -5,7 +5,7 @@ using UnityEngine;
 public class HordeManager : MonoBehaviour
 {
     [SerializeField] private GameObject enemySpawnerOne;
-    [SerializeField] private GameManager enemyPredab;
+    [SerializeField] private GameObject enemyPredab;
     [SerializeField] private float hordeOneSize = 2f;
     // Start is called before the first frame update
     void Start()
