@@ -17,6 +17,7 @@ public class Warps : MonoBehaviour
 
     private void Awake()
     {
+        //Se vuelve insivible 
         GetComponent<SpriteRenderer>().enabled = false;
         transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
     }
@@ -24,14 +25,15 @@ public class Warps : MonoBehaviour
 
     IEnumerator OnTriggerEnter2D(Collider2D other)
     {
-
+       // Debug.Log("PlayerToca Warp");
         other.GetComponent<Animator>().enabled = false;
         other.GetComponent<Player>().enabled = false;
         FadeIn();
         yield return new WaitForSeconds(FadeTime);
         
        if (other.CompareTag("Player"))
-       {
+       {    
+           Debug.Log("Player se teletransporta al warp");
            other.transform.position = target.transform.GetChild(0).transform.position;
        }
        FadeOut();
