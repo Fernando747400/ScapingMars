@@ -5,40 +5,30 @@ using UnityEngine;
 public class MusicSettings : MonoBehaviour
 {
     private AudioSource audioSource;
-    private int volumeOff = 0;
-    private int volumeOn = 1;
-    private int volume;
-    private bool val = true;
-    
 
-
-    void Update()
+    public void Start()
     {
-        volume = PlayerPrefs.GetInt("Music");
-        
+        audioSource = this.GetComponent<AudioSource>();
+        if (!PlayerPrefs.HasKey("Music"))
+        {
+            PlayerPrefs.SetInt("Music", 1);
+        }
+    }
 
+    public void muteAudio()
+    {
         if (PlayerPrefs.GetInt("Music") == 0)
         {
-            PlayerPrefs.Save();
+            PlayerPrefs.SetInt("Music", 1);
+        }
+        else if (PlayerPrefs.GetInt("Music") == 1)
+        {
+            PlayerPrefs.SetInt("Music", 0);
         }
 
-        if (PlayerPrefs.GetInt("Music") == 1)
-        {
-            PlayerPrefs.Save();
-        }
-        
+        audioSource.volume = PlayerPrefs.GetInt("Music");
     }
-    public void SetVolumeOn()
-    {
-        ///audioSource.volume = volumeOn;
-        //volume = 1;
-    }
-    
-    public void SetVolumOff()
-    {
-       //audioSource.volume = volumeOff;
-       // volume = 0;
-    }
+
     
 
 }
