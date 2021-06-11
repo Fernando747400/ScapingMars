@@ -2,18 +2,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Player : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float speedMovPlayer = 1.5f;
     private Animator animComponent;
     private Rigidbody2D rbPlayer;
     public Vector2 move2D;
     public bool  canShoot;
     private bool fireShoot;
+
+    [Header("Weapon")]
     [SerializeField] private GameObject weaponOnGround;
     [SerializeField] private GameObject weaponOnMe;
+
+    [Header("Life")]
+    public HealthBar healthBar;
+    private int maxHealth = 100;
+    [SerializeField] private int currentHealth;
+
+
 
 
 
@@ -25,6 +36,8 @@ public class Player : MonoBehaviour
 
     void InicializeComponents()
     {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealthBar(maxHealth);
         animComponent = GetComponent<Animator>();
         rbPlayer = GetComponent<Rigidbody2D>();
     }
@@ -65,27 +78,7 @@ public class Player : MonoBehaviour
             {
                  animComponent.SetBool("Fire",false); 
             }       
-        }
-/*
-        if(move2D.x > 0)
-        {
-            Debug.Log("PlAYER YENDO A X+");
-        }
-        if(move2D.x < 0)
-        {
-            Debug.Log("PlAYER YENDO A X-");
-        }
-        if(move2D.y < 0)
-        {
-             Debug.Log("PlAYER YENDO A Y-");
-        }
-        if(move2D.y > 0)
-        {
-             Debug.Log("PlAYER YENDO A Y-");
-        }
-*/
-
-          
+        }          
         
     }   
     void OnTriggerEnter2D(Collider2D other) 
@@ -102,6 +95,12 @@ public class Player : MonoBehaviour
             GlobalVariables.ItemOne = true;
             Destroy(other.gameObject);
         }
+    }
+
+    void RecieveDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
     }
 
     
