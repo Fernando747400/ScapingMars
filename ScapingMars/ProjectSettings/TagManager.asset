@@ -7,6 +7,7 @@ TagManager:
   - Weapon1
   - Impact
   - Enemy
+  - Item
   layers:
   - Default
   - TransparentFX

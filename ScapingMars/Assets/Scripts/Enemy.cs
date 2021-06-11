@@ -55,8 +55,12 @@ public class Enemy : MonoBehaviour
 
     public void Move()
     {
-        lookDirection = (target.position - transform.position).normalized;
-        transform.Translate(lookDirection * Time.deltaTime * speed);
+        if (GlobalVariables.IsInside == false)
+        {
+            lookDirection = (target.position - transform.position).normalized;
+            transform.Translate(lookDirection * Time.deltaTime * speed);
+        }
+       
     }
 
     public void Update()

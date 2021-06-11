@@ -5,12 +5,22 @@ using UnityEngine;
 public class HordeManager : MonoBehaviour
 {
     [SerializeField] private GameObject enemySpawnerOne;
-    [SerializeField] private GameObject enemyPredab;
-    [SerializeField] private float hordeOneSize = 2f;
+    [SerializeField] private GameObject enemySpawnerTwo;
+    [SerializeField] private GameObject enemySpawnerThree;
+    [SerializeField] private GameObject enemySpawnerFour;
+    [SerializeField] private GameObject enemySpawnerFive;
+    [SerializeField] private GameObject enemySpawnerSix;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private int hordeSizeMultiplier = 2;
+    private GameObject[] spawnerList = new GameObject[6];
     // Start is called before the first frame update
     void Start()
     {
-        
+        addToList();
+        if (hordeSizeMultiplier <= 0)
+        {
+            hordeSizeMultiplier = 1;
+        }
     }
 
     // Update is called once per frame
@@ -21,14 +31,67 @@ public class HordeManager : MonoBehaviour
 
     void checkForHorde()
     {
-        if (GlobalVariables.ItemOne == true && GlobalVariables.HordeOne == false)
+        if (GlobalVariables.GunPickup == true && GlobalVariables.HordeOne == false)
         {
             GlobalVariables.HordeOne = true;
-            for (int i =0; i < hordeOneSize; i++)
-            {
-                Instantiate(enemyPredab, enemySpawnerOne.transform, false);
-            }
-           
+                StartCoroutine(slowInstantiate());
         }
+
+        if (GlobalVariables.ItemOne == true && GlobalVariables.HordeTwo == false)
+        {
+            GlobalVariables.HordeTwo = true;
+            for (int i = 0; i < GlobalVariables.NumberOfItems * hordeSizeMultiplier; i++)
+            {
+                StartCoroutine(slowInstantiate());
+            }
+        }
+
+        if (GlobalVariables.ItemTwo == true && GlobalVariables.HordeThree == false)
+        {
+            GlobalVariables.HordeThree = true;
+            for (int i = 0; i < GlobalVariables.NumberOfItems * hordeSizeMultiplier; i++)
+            {
+                StartCoroutine(slowInstantiate());
+            }
+        }
+
+        if (GlobalVariables.ItemThree == true && GlobalVariables.HordeFour == false)
+        {
+            GlobalVariables.HordeFour = true;
+            for (int i = 0; i < GlobalVariables.NumberOfItems * hordeSizeMultiplier; i++)
+            {
+                StartCoroutine(slowInstantiate());
+            }
+        }
+
+        if (GlobalVariables.ItemFour == true && GlobalVariables.HordeFive == false)
+        {
+            GlobalVariables.HordeFive = true;
+            for (int i = 0; i < GlobalVariables.NumberOfItems * hordeSizeMultiplier; i++)
+            {
+                StartCoroutine(slowInstantiate());
+            }
+        }
+    }
+
+    public IEnumerator slowInstantiate()
+    {
+        WaitForSeconds wait = new WaitForSeconds(1);
+        for (int i = 0; i < GlobalVariables.NumberOfItems * hordeSizeMultiplier; i++)
+        {
+            Instantiate(enemyPrefab, spawnerList[Random.Range(0, 6)].gameObject.transform, false);
+            yield return wait;
+        }     
+        Debug.Log("Spawned an enemy");       
+    }
+
+    public void addToList()
+    {
+        spawnerList[0] = enemySpawnerOne;
+        spawnerList[1] = enemySpawnerTwo;
+        spawnerList[2] = enemySpawnerThree;
+        spawnerList[3] = enemySpawnerFour;
+        spawnerList[4] = enemySpawnerFive;
+        spawnerList[5] = enemySpawnerSix;
     }
 }
