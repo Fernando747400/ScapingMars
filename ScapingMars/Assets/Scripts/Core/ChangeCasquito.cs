@@ -48,6 +48,13 @@ public class ChangeCasquito : MonoBehaviour
         CasquitoDown.SetActive(false);
     }
     
+    void PosCasquito(int i)
+    {
+
+        if(i == 1) CasquitoIzq.SetActive(true);
+        
+    }
+    
     void TurnON()
     {
           if(playerScript.move2D.x > 0)
@@ -89,13 +96,14 @@ public class ChangeCasquito : MonoBehaviour
     {
         if(other == room)
         {
-            Debug.Log("Tocó detect zone room");
+           // Debug.Log("Tocó detect zone room");
             isOut = false;
         }
 
         if(other == outside)
         {
-            Debug.Log("Detect outside");
+            //Debug.Log("Detect outside");
+            PosCasquito(1);
             isOut = true;
         }
 

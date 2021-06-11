@@ -21,4 +21,6 @@ public class CambioScene : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(scene);
     }
+
+    
 }

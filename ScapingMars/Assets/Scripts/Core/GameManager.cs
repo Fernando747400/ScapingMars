@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] GameObject narrative;
+   
 
     [Header("Game Status")]
 

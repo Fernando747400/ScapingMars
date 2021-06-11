@@ -33,7 +33,7 @@ public class Warps : MonoBehaviour
         
        if (other.CompareTag("Player"))
        {    
-           Debug.Log("Player se teletransporta al warp");
+           //Debug.Log("Player se teletransporta al warp");
            other.transform.position = target.transform.GetChild(0).transform.position;
        }
        FadeOut();
