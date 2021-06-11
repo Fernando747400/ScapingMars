@@ -23,13 +23,13 @@ public class MusicSettings : MonoBehaviour
        
         firstSprite = image.sprite;
         
-
-
         audioSource = this.GetComponent<AudioSource>();
         if (!PlayerPrefs.HasKey("Music"))
         {
             PlayerPrefs.SetInt("Music", 1);
         }
+
+        firstStart();
     }
 
     public void muteAudio()
@@ -47,14 +47,23 @@ public class MusicSettings : MonoBehaviour
         {
             PlayerPrefs.SetInt("Music", 0);
             image.sprite = spriteSound;
-
-            
-            
+         
         }
 
         audioSource.volume = PlayerPrefs.GetInt("Music");
     }
 
-    
+    public void firstStart()
+    {
+        if (PlayerPrefs.GetInt("Music") == 0)
+        {
+            image.sprite = firstSprite;
+        }
+        else if (PlayerPrefs.GetInt("Music") == 1)
+        {
+            image.sprite = spriteSound;
+        }
+        audioSource.volume = PlayerPrefs.GetInt("Music");
+    }
 
 }
