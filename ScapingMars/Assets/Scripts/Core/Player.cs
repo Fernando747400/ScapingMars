@@ -94,13 +94,41 @@ public class Player : MonoBehaviour
         {
             Debug.Log("PlayerTocaArma");
             weaponOnGround.gameObject.SetActive(false);
-            GlobalVariables.ItemOne = true;
+            GlobalVariables.GunPickup = true;
+            GlobalVariables.NumberOfItems = GlobalVariables.NumberOfItems + 1;
         }
 
-        if (other.name == "ItemOne")
+        if (other.CompareTag("Item"))
         {
-            GlobalVariables.ItemOne = true;
+            GlobalVariables.NumberOfItems = GlobalVariables.NumberOfItems + 1;
             Destroy(other.gameObject);
+        }
+
+        switch (other.name)
+        {
+            case "ItemOne":
+                {
+                    GlobalVariables.ItemOne = true;
+                }
+                break;
+
+            case "ItemTwo":
+                {
+                    GlobalVariables.ItemTwo = true;
+                }
+                break;
+
+            case "ItemThree":
+                {
+                    GlobalVariables.ItemThree = true;
+                }
+                break;
+
+            case "ItemFour":
+                {
+                    GlobalVariables.ItemFour = true;
+                }
+                break;
         }
     }
 

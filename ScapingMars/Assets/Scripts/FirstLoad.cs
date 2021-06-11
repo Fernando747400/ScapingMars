@@ -11,6 +11,14 @@ public class FirstLoad : MonoBehaviour
         GlobalVariables.ItemTwo = false;
         GlobalVariables.ItemThree = false;
         GlobalVariables.ItemFour = false;
+        GlobalVariables.GunPickup = false;
+        GlobalVariables.HordeOne = false;
+        GlobalVariables.HordeTwo = false;
+        GlobalVariables.HordeThree = false;
+        GlobalVariables.HordeFour = false;
+        GlobalVariables.HordeFive = false;
+        GlobalVariables.NumberOfItems = 0;
+        GlobalVariables.IsInside = true;
     }
 
 }

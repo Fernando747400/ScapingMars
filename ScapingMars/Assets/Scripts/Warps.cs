@@ -35,6 +35,7 @@ public class Warps : MonoBehaviour
        {    
            //Debug.Log("Player se teletransporta al warp");
            other.transform.position = target.transform.GetChild(0).transform.position;
+            isInside();
        }
        FadeOut();
        other.GetComponent<Animator>().enabled = true;
@@ -77,6 +78,17 @@ public class Warps : MonoBehaviour
    public void FadeOut()
     {
         isFadeIn = false;
+    }
+
+    public void isInside()
+    {
+        if (GlobalVariables.IsInside == false)
+        {
+            GlobalVariables.IsInside = true;
+        } else if (GlobalVariables.IsInside == true)
+        {
+            GlobalVariables.IsInside = false;
+        }
     }
 }
 
