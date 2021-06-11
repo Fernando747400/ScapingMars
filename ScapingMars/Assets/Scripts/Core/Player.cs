@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     private int maxHealth = 100;
     [SerializeField] private int currentHealth;
+    private float invulnerable = 1.5f;
+    private float timeFrame;
 
 
 
@@ -97,6 +99,16 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.CompareTag("Enemy"))
+        {
+            if (timeFrame < Time.time)
+            {
+                RecieveDamage(20);
+                death();
+                timeFrame = Time.time + invulnerable; 
+            }           
+        }
+
         switch (other.name)
         {
             case "ItemOne":
@@ -129,10 +141,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    void death()
+    {
+        if (currentHealth == 0)
+        {
+            //Llamar a la escena de perdida 
+        }
+    }
+
     void RecieveDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);   
     }
 
     
