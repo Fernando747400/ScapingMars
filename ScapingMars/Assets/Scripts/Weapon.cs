@@ -31,6 +31,8 @@ public class Weapon : MonoBehaviour
     public GameObject player;
     Player playerScript;
     private int posRotate;
+    public float ShootingDelay = 1f;
+    private float tempTime;
     
    void Awake()
    {
@@ -102,25 +104,30 @@ public class Weapon : MonoBehaviour
  
     void Shoot()
     {
-        switch(posRotate)
+        if (tempTime < Time.time)
         {
-            case 1:
-                LeanPool.Spawn(bulletprefab, firePointposX.position, firePointposX.rotation);     
-                        
-            break;
-            case 2:
-                LeanPool.Spawn(bulletprefab, firePointnegX.position, firePointnegX.rotation);
-                
-            break;
-            case 3:
-                LeanPool.Spawn(bulletprefab, firePointnegY.position, firePointnegY.rotation);
-                
-            break;  
-            case 4:
-                LeanPool.Spawn(bulletprefab, firePointposY.position, firePointposY.rotation);
-                
-            break;
+            switch (posRotate)
+            {
+                case 1:
+                    LeanPool.Spawn(bulletprefab, firePointposX.position, firePointposX.rotation);
+
+                    break;
+                case 2:
+                    LeanPool.Spawn(bulletprefab, firePointnegX.position, firePointnegX.rotation);
+
+                    break;
+                case 3:
+                    LeanPool.Spawn(bulletprefab, firePointnegY.position, firePointnegY.rotation);
+
+                    break;
+                case 4:
+                    LeanPool.Spawn(bulletprefab, firePointposY.position, firePointposY.rotation);
+
+                    break;
+            }
+            tempTime = Time.time + ShootingDelay;
         }
+   
 
     }
 

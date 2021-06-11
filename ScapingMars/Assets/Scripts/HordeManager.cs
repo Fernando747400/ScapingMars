@@ -11,7 +11,7 @@ public class HordeManager : MonoBehaviour
     [SerializeField] private GameObject enemySpawnerFive;
     [SerializeField] private GameObject enemySpawnerSix;
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private int hordeSizeMultiplier = 2;
+    [SerializeField] private int hordeSizeMultiplier = 6;
     private GameObject[] spawnerList = new GameObject[6];
     // Start is called before the first frame update
     void Start()
@@ -40,37 +40,25 @@ public class HordeManager : MonoBehaviour
         if (GlobalVariables.ItemOne == true && GlobalVariables.HordeTwo == false)
         {
             GlobalVariables.HordeTwo = true;
-            for (int i = 0; i < GlobalVariables.NumberOfItems * hordeSizeMultiplier; i++)
-            {
-                StartCoroutine(slowInstantiate());
-            }
+            StartCoroutine(slowInstantiate());
         }
 
         if (GlobalVariables.ItemTwo == true && GlobalVariables.HordeThree == false)
         {
             GlobalVariables.HordeThree = true;
-            for (int i = 0; i < GlobalVariables.NumberOfItems * hordeSizeMultiplier; i++)
-            {
-                StartCoroutine(slowInstantiate());
-            }
+            StartCoroutine(slowInstantiate());
         }
 
         if (GlobalVariables.ItemThree == true && GlobalVariables.HordeFour == false)
         {
             GlobalVariables.HordeFour = true;
-            for (int i = 0; i < GlobalVariables.NumberOfItems * hordeSizeMultiplier; i++)
-            {
-                StartCoroutine(slowInstantiate());
-            }
+            StartCoroutine(slowInstantiate());
         }
 
         if (GlobalVariables.ItemFour == true && GlobalVariables.HordeFive == false)
         {
             GlobalVariables.HordeFive = true;
-            for (int i = 0; i < GlobalVariables.NumberOfItems * hordeSizeMultiplier; i++)
-            {
-                StartCoroutine(slowInstantiate());
-            }
+            StartCoroutine(slowInstantiate());
         }
     }
 
@@ -80,6 +68,7 @@ public class HordeManager : MonoBehaviour
         for (int i = 0; i < GlobalVariables.NumberOfItems * hordeSizeMultiplier; i++)
         {
             Instantiate(enemyPrefab, spawnerList[Random.Range(0, 6)].gameObject.transform, false);
+            GlobalVariables.NumberOfEnemies = GlobalVariables.NumberOfEnemies + 1;
             yield return wait;
         }     
         Debug.Log("Spawned an enemy");       

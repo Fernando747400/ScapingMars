@@ -8,6 +8,7 @@ public static class GlobalVariables
     private static bool hordeOne, hordeTwo, hordeThree, hordeFour, hordeFive;
     private static int numberOfItems;
     private static bool isInside;
+    private static int numberOfEnemies;
     
    public static bool ItemOne
     {
@@ -160,6 +161,19 @@ public static class GlobalVariables
         get
         {
             return isInside;
+        }
+    }
+
+    public static int NumberOfEnemies
+    {
+        set
+        {
+            numberOfEnemies = value;
+        }
+
+        get
+        {
+            return numberOfEnemies;
         }
     }
 

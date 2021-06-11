@@ -19,6 +19,7 @@ public class FirstLoad : MonoBehaviour
         GlobalVariables.HordeFive = false;
         GlobalVariables.NumberOfItems = 0;
         GlobalVariables.IsInside = true;
+        GlobalVariables.NumberOfEnemies = 0;
     }
 
 }

@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         enemySpriteRenderer = GetComponent<SpriteRenderer>();
         target = GameObject.Find("Player").transform;
+        speed = Random.Range(1.0f, 3.5f);
     } 
 
 
@@ -50,6 +51,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        GlobalVariables.NumberOfEnemies = GlobalVariables.NumberOfEnemies - 1;
         LeanPool.Despawn(this.gameObject);
     }
 

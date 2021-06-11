@@ -102,24 +102,28 @@ public class Player : MonoBehaviour
             case "ItemOne":
                 {
                     GlobalVariables.ItemOne = true;
+                    Destroy(other.gameObject);
                 }
                 break;
 
             case "ItemTwo":
                 {
                     GlobalVariables.ItemTwo = true;
+                    Destroy(other.gameObject);
                 }
                 break;
 
             case "ItemThree":
                 {
                     GlobalVariables.ItemThree = true;
+                    Destroy(other.gameObject);
                 }
                 break;
 
             case "ItemFour":
                 {
                     GlobalVariables.ItemFour = true;
+                    Destroy(other.gameObject);
                 }
                 break;
         }
