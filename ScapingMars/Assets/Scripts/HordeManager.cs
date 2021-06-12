@@ -69,6 +69,7 @@ public class HordeManager : MonoBehaviour
         {
             Instantiate(enemyPrefab, spawnerList[Random.Range(0, 6)].gameObject.transform, false);
             GlobalVariables.NumberOfEnemies = GlobalVariables.NumberOfEnemies + 1;
+            Debug.Log("Horde Enemies" + GlobalVariables.NumberOfEnemies);
             yield return wait;
         }     
         //Debug.Log("Spawned an enemy");       

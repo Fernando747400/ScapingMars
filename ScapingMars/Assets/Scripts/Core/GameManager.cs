@@ -7,12 +7,16 @@ public class GameManager : MonoBehaviour
     
     [Header("Player")]
     [SerializeField] GameObject playerGO;
+    [SerializeField] GameObject[] casquito;
+    [SerializeField] GameObject gun;
+    
     private Player playerScript;
 
 
     [Header("UI")]
     [SerializeField] GameObject narrative;
     [SerializeField] GameObject firstDialog;
+    [SerializeField] GameObject finalDialog;
     
     [SerializeField] private GameObject diePanel;
    
@@ -29,13 +33,22 @@ public class GameManager : MonoBehaviour
 
     [Header ("Ship")]
     [SerializeField] private GameObject ship;
+    
     private Collider2D colShip;
+
+    Vector2 finalPosCam;
+
+    [Header("GameManager")]
+    [SerializeField] GameObject changeSceneGO;
+    CambioScene changescene;
 
 
 
 
     void Start()
     {
+        changescene = changeSceneGO.GetComponent<CambioScene>();
+        finalPosCam = ship.transform.position;
         diePanel.SetActive(false);
         //firstDialog.SetActive(false);
         colShip = ship.GetComponent<Collider2D>();
@@ -45,7 +58,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GamePass();
+        if(GlobalVariables.NumberOfItems == 5 && GlobalVariables.NumberOfEnemies == 0)
+        {
+            GamePass();
+        }
     }
 
     public void GameOver()
@@ -55,12 +71,21 @@ public class GameManager : MonoBehaviour
     }
     public void GamePass()
     {
-        if(GlobalVariables.NumberOfItems == 5 && GlobalVariables.NumberOfEnemies == 0)
-        {
-            // Llamar a la escena de victoria. 
-            //colShip.isTrigger = true;
-            Debug.Log("Ship is triger");
-        }
+       finalDialog.SetActive(true);
+       playerGO.transform.position = finalPosCam;
+       playerGO.GetComponent<Player>().enabled = false;
+       playerGO.GetComponent<SpriteRenderer>().enabled = false;
+       gun.GetComponent<SpriteRenderer>().enabled = false;
+
+       for(int i = 0; i < casquito.Length; i++)
+       {
+           casquito[i].GetComponent<SpriteRenderer>().enabled = false;
+       }
+
+       StartCoroutine(ChangetoCredits());
+       
+
+
     }
 
     public void CloseNarrative()
@@ -69,6 +94,17 @@ public class GameManager : MonoBehaviour
        
     }
    
+
+    IEnumerator ChangetoCredits ()
+    {   
+        yield return new WaitUntil(()=> Input.GetKeyDown(KeyCode.Space));
+        changescene.FadeOut(2);
+       
+
+        
+    }
+
+    
 
 
 }

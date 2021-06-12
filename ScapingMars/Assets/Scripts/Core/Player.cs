@@ -105,7 +105,8 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Item"))
         {
             GlobalVariables.NumberOfItems = GlobalVariables.NumberOfItems + 1;
-            Destroy(other.gameObject);
+            Debug.Log(GlobalVariables.NumberOfItems);
+            //Destroy(other.gameObject);
         }
 
         if (other.CompareTag("Enemy"))

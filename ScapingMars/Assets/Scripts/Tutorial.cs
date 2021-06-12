@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
@@ -36,7 +37,12 @@ public class Tutorial : MonoBehaviour
        // f.SetActive(true);
 
         yield return new WaitUntil(()=> Input.GetKeyDown(KeyCode.Space));
-        Object.Destroy(tutorial);
+
+        Destroy(tutorial);
+        /*
+        tutorial.GetComponent<Image>().enabled = false;
+        wasd.GetComponent<Image>().enabled = false;
+        space.GetComponent<Image>().enabled = false;*/
 
     }
 }

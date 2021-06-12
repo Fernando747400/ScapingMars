@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
         if (enemyLife<=0)
            { 
                Die();
+               
            }
     }   
     IEnumerator TakingDamage()
@@ -53,6 +54,7 @@ public class Enemy : MonoBehaviour
     {
         GlobalVariables.NumberOfEnemies = GlobalVariables.NumberOfEnemies - 1;
         LeanPool.Despawn(this.gameObject);
+        Debug.Log("EnemiesGlobalVar" + GlobalVariables.NumberOfEnemies);
     }
 
     public void Move()
