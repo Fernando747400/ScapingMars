@@ -10,25 +10,33 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject space;
     [SerializeField] private GameObject f;
 
-    private int select;
+
+    [Header("UI")]
+    [SerializeField] private GameObject firstDialog;
+
+    private int count = 0;
     void Start()
     {
-        tutorial.SetActive(true);
-        
-        StartCoroutine(ShowTutorials());
+        tutorial.SetActive(false);   
+    }
+
+    void Update()
+    {
+         if(firstDialog.activeInHierarchy == false)
+        {
+            StartCoroutine(ShowTutorials());
+        }
     }
 
     IEnumerator ShowTutorials()
     {
-       
+        tutorial.SetActive(true);
         wasd.SetActive(true);
         space.SetActive(true);
-        f.SetActive(true);
+       // f.SetActive(true);
 
-        yield return new WaitUntil(()=> Input.GetMouseButtonDown(0));
-        wasd.SetActive(false);
-        space.SetActive(false);
-        f.SetActive(false);
+        yield return new WaitUntil(()=> Input.GetKeyDown(KeyCode.Space));
+        Object.Destroy(tutorial);
 
     }
 }

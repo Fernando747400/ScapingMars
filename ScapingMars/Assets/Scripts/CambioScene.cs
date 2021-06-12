@@ -22,5 +22,12 @@ public class CambioScene : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    
     
 }

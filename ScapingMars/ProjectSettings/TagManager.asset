@@ -8,6 +8,8 @@ TagManager:
   - Impact
   - Enemy
   - Item
+  - Pieza
+  - Comb
   layers:
   - Default
   - TransparentFX

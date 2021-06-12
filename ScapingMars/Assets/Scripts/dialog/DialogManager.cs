@@ -33,7 +33,8 @@ namespace DialogSystem
                 yield return new WaitForSeconds(delay);
             }
             
-            yield return new WaitUntil(() => Input.GetMouseButton(0));
+           // yield return new WaitUntil(() => Input.GetMouseButton(0));
+           yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
             finished = true;
 
         }

@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] GameObject narrative;
+    [SerializeField] GameObject firstDialog;
+    
+    [SerializeField] private GameObject diePanel;
    
 
     [Header("Game Status")]
@@ -19,34 +22,53 @@ public class GameManager : MonoBehaviour
     public bool GameStart;
     public bool GameFinished;
     public bool finalStage;
+    
     [Header("Enemies)")]
     public bool insEnemies;
+
+
+    [Header ("Ship")]
+    [SerializeField] private GameObject ship;
+    private Collider2D colShip;
+
+
+
+
     void Start()
     {
-        
+        diePanel.SetActive(false);
+        //firstDialog.SetActive(false);
+        colShip = ship.GetComponent<Collider2D>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GamePass();
+    }
+
+    public void GameOver()
+    {
+        diePanel.SetActive(true);
+
+    }
+    public void GamePass()
+    {
+        if(GlobalVariables.NumberOfItems == 5 && GlobalVariables.NumberOfEnemies == 0)
+        {
+            // Llamar a la escena de victoria. 
+            //colShip.isTrigger = true;
+            Debug.Log("Ship is triger");
+        }
     }
 
     public void CloseNarrative()
     {
-        StartCoroutine(DoFade());
-        
+        narrative.gameObject.SetActive(false);
+       
     }
+   
 
-    IEnumerator DoFade()
-    {
-        Warps warpScript = new Warps();
 
-        warpScript.FadeIn();
-
-        yield return new WaitForSeconds(0.5f);
-        warpScript.FadeOut();
-        
-        narrative.SetActive(false);
-    }
 }

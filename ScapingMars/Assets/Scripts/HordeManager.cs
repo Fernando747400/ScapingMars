@@ -71,7 +71,7 @@ public class HordeManager : MonoBehaviour
             GlobalVariables.NumberOfEnemies = GlobalVariables.NumberOfEnemies + 1;
             yield return wait;
         }     
-        Debug.Log("Spawned an enemy");       
+        //Debug.Log("Spawned an enemy");       
     }
 
     public void addToList()

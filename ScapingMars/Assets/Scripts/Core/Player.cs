@@ -25,6 +25,13 @@ public class Player : MonoBehaviour
     [SerializeField] private int currentHealth;
     private float invulnerable = 1.5f;
     private float timeFrame;
+    [Header("Game Manager")]
+    [SerializeField]private GameObject gameMG;
+    GameManager gameManager;
+
+    
+
+
 
 
 
@@ -41,7 +48,9 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealthBar(maxHealth);
         animComponent = GetComponent<Animator>();
-        rbPlayer = GetComponent<Rigidbody2D>();
+        rbPlayer = GetComponent<Rigidbody2D>(); 
+        gameManager = gameMG.GetComponent<GameManager>();
+
     }
     void FixedUpdate()
     {
@@ -72,7 +81,7 @@ public class Player : MonoBehaviour
             //animComponent.SetBool("Fire" , true);
             if (move2D != Vector2.zero)
             {  
-               Debug.Log("Cambiar a animShoot");
+            // Debug.Log("Cambiar a animShoot");
               animComponent.SetBool ("Walk",false);
               animComponent.SetBool("Fire" , true);
             }  
@@ -87,7 +96,7 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Weapon1"))
         {
-            Debug.Log("PlayerTocaArma");
+            //Debug.Log("PlayerTocaArma");
             weaponOnGround.gameObject.SetActive(false);
             GlobalVariables.GunPickup = true;
             GlobalVariables.NumberOfItems = GlobalVariables.NumberOfItems + 1;
@@ -145,7 +154,7 @@ public class Player : MonoBehaviour
     {
         if (currentHealth == 0)
         {
-            //Llamar a la escena de perdida 
+            gameManager.GameOver();
         }
     }
 
